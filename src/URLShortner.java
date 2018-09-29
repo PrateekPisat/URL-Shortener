@@ -57,11 +57,11 @@ public class URLShortner
         // TODO: Validate URL
         URL = sanitizeURL(URL);
         if(urlCheck.containsKey(URL))
-            return urlCheck.get(URL).toString();
+            return domain + urlCheck.get(URL).toString();
         else
         {
             String key = generateKey(URL);
-            return domain+key;
+            return domain + key;
         }
     }
     
@@ -116,7 +116,7 @@ public class URLShortner
         String key = "";
         for(int i=0;i<length;i++)
         {
-            key += Character.toString(charMap[r.nextInt(64)]);
+            key += Character.toString(charMap[r.nextInt(charMap.length)]);
         }
         return key;
     }
@@ -145,6 +145,8 @@ public class URLShortner
         URLShortner u = new URLShortner();
         String shortURL = u.shortURL("www.google.com/");
         System.out.println(shortURL);
+        System.out.println(u.shortURL("www.google.com/"));
+        System.out.println(u.shortURL("https://www.google.com/"));
         String longURL = u.longURL(shortURL);
         System.out.println(longURL);
     }
