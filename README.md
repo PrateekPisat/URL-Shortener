@@ -17,7 +17,7 @@ NOTE: The solution that I have provided is best serves as a simulation for the U
         OR<br>
         `java URLShortener2`
 
-## Approach:
+## Approachs:
 I have provided 2 solutions with 2 different approaches:<br>
 - Approach 1: Random Key/String Approach
     - In this approach, the user specifies a domain(for the new URL) and a length(the length of the new key for the new URL). 
