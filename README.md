@@ -18,8 +18,8 @@ NOTE: The solution that I have provided is best serves as a simulation for the U
         `java URLShortener2`
 
 ## Approach:
-I have provided 2 solutions with 2 different approaches:
-    1. Approach 1: Random Key/String Approach
+I have provided 2 solutions with 2 different approaches:<br>
+     - Approach 1: Random Key/String Approach
         - In this approach, the user specifies a domain(for the new URL) and a length(the length of the new key for the new URL). 
           By Default these are set to "www.tiny.bit/" and 6 respectively.
         - I am using a <Key, URL> Map to store the shortened URL key associated with the each URL that was passed to a URLShortener 
@@ -31,7 +31,7 @@ I have provided 2 solutions with 2 different approaches:
         - I then return the key appended to the domain, as the shorter URL.
         - To recover the longer URL, I use the <Key, URL> map to recover the original URL.
     
-    2. Approach 2: Hashing/ MD5 Approach
+    - Approach 2: Hashing/ MD5 Approach
         - The data structures, classes, etc. used in this approach are the same as that of Approach 1.
         - The only change is that instead of using random characters form the character array, I generate a hash using the MD5 algorithm 
           using the given URL as the message digest
