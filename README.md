@@ -9,13 +9,13 @@ NOTE: The solution that I have provided is best serves as a simulation for the U
 - The program is written using Java.
 - To compile the code:
     - Navigate to the 'src 'folder and run the following command.:<br>
-        `javac URLShortener.java`
-        OR
+        `javac URLShortener.java`<br>
+        OR<br>
         `javac URLShortener2.java`
     - To execute the program, run the following command:
-        `java URLShoretner`
-        OR
-        `java URLShoretner`
+        `java URLShortener`<br>
+        OR<br>
+        `java URLShortener2`
 
 ## Approach:
     I have provided 2 solutions with 2 different approaches:
