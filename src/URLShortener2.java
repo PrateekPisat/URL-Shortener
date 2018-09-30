@@ -1,7 +1,10 @@
-
+// Approach 2: MD5 Hash
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
-public class URLShortner
+public class URLShortener2
 {
     // I am using a Map as a replacement to a database.
     // This is a <Key, URL> Map.
@@ -14,37 +17,26 @@ public class URLShortner
     // The length of the new URL. i.e. The number of characters after "/"
     // Example: www.tiny.bit/1sr12; lenght = 5.
     int length;
-    // To randomly select characters from the following character array.
-    Random r;
-    // An array of all possible characters
-    char[] charMap = {
-        'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r',
-        's','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J',
-        'K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','0','1',
-        '2','3','4','5','6','7','8','9' 
-    };
     
     // Default Constructor. Initializes variable to their default values.
-    protected URLShortner()
+    protected URLShortener2()
     {
         makeshiftdatabase = new HashMap();
         urlCheck = new HashMap();
-        r = new Random();
         domain = "www.tiny.bit/";
         length = 7;
     }
     
     // Paramertized constructor. Initializes variables to the given values.
-    protected URLShortner(String domain, int length)
+    protected URLShortener2(String domain, int length)
     {
         makeshiftdatabase = new HashMap();
         urlCheck = new HashMap();
-        r = new Random();
-        // If the provided domain has no trailing "/", we need to add one.
-        if(domain.charAt(domain.length())-1 != '/')
-            domain+="/";
-        this.domain = domain;
         this.length = length;
+        this.domain = domain;
+        // If the provided domain has no trailing "/", we need to add one.
+        if(this.domain.charAt(this.domain.length()-1) != '/')
+            this.domain+="/";
     }
     
     // API Methods:
@@ -98,7 +90,7 @@ public class URLShortner
         String key = null;
         while(!flag)
         {
-            key = getKey();
+            key = getKey(unknownURL);
             if(!makeshiftdatabase.containsKey(key))
                 flag = true;
         }
@@ -107,20 +99,39 @@ public class URLShortner
         return key;
     }
     
-    // getKey: void -> String
+    // getKey: String -> String
     // Input: A long form URL, that is unknow to the map/db.
     // Output: A random key(String of characters) that will be appended to the 
     //         specified domain to get the short URL.
     // Example: new URLShotner().generateKey(
     //          "www.google.com/assd/sdasd/index.html" ) -> "1234567"
-    private String getKey()
+    private String getKey(String input)
     {
         String key = "";
-        for(int i=0;i<length;i++)
-        {
-            key += Character.toString(charMap[r.nextInt(charMap.length)]);
+        try { 
+  
+            // Static getInstance method is called with hashing MD5 
+            MessageDigest md = MessageDigest.getInstance("MD5"); 
+            // digest() method is called to calculate message digest 
+            //  of an input digest() return array of byte 
+            byte[] messageDigest = md.digest(input.getBytes()); 
+            // Convert byte array into signum representation 
+            BigInteger no = new BigInteger(1, messageDigest); 
+            // Convert message digest into hex value 
+            String hashtext = no.toString(16); 
+            while (hashtext.length() < 32) { 
+                hashtext = "0" + hashtext; 
+            }
+            if(hashtext.length()<this.length)
+                return hashtext;
+            else 
+                return hashtext.subSequence(0, length).toString(); 
+        }  
+  
+        // For specifying wrong message digest algorithms 
+        catch (NoSuchAlgorithmException e) { 
+            throw new RuntimeException(e); 
         }
-        return key;
     }
     
     // sanitizeURL: String -> String
@@ -144,11 +155,11 @@ public class URLShortner
     // main method to test
     public static void main(String ar[]) throws Exception
     {
-        URLShortner u = new URLShortner();
-        String shortURL = u.shortURL("www.google.com/asd");
+        URLShortener2 u = new URLShortener2();
+        String shortURL = u.shortURL("www.google.com/");
         System.out.println(shortURL);
-        System.out.println(u.shortURL("www.google.com/dsd"));
-        System.out.println(u.shortURL("https://www.google.com/as"));
+        System.out.println(u.shortURL("www.google.com"));
+        System.out.println(u.shortURL("https://www.google.com/"));
         String longURL = u.longURL(shortURL);
         System.out.println(longURL);
     }
