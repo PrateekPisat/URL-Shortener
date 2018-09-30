@@ -12,7 +12,7 @@ NOTE: The solution that I have provided is best serves as a simulation for the U
         `javac URLShortener.java`<br>
         OR<br>
         `javac URLShortener2.java`
-    - To execute the program, run the following command:
+    - To execute the program, run the following command:<br>
         `java URLShortener`<br>
         OR<br>
         `java URLShortener2`
