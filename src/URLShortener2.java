@@ -24,7 +24,7 @@ public class URLShortener2
         makeshiftdatabase = new HashMap();
         urlCheck = new HashMap();
         domain = "www.tiny.bit/";
-        length = 7;
+        length = 6;
     }
     
     // Paramertized constructor. Initializes variables to the given values.

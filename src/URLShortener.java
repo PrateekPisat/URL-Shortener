@@ -1,7 +1,7 @@
-
+// Approach 1: Random Key/String
 import java.util.*;
 
-public class URLShortner
+public class URLShortener
 {
     // I am using a Map as a replacement to a database.
     // This is a <Key, URL> Map.
@@ -25,23 +25,23 @@ public class URLShortner
     };
     
     // Default Constructor. Initializes variable to their default values.
-    protected URLShortner()
+    protected URLShortener()
     {
         makeshiftdatabase = new HashMap();
         urlCheck = new HashMap();
         r = new Random();
         domain = "www.tiny.bit/";
-        length = 7;
+        length = 6;
     }
     
     // Paramertized constructor. Initializes variables to the given values.
-    protected URLShortner(String domain, int length)
+    protected URLShortener(String domain, int length)
     {
         makeshiftdatabase = new HashMap();
         urlCheck = new HashMap();
         r = new Random();
         // If the provided domain has no trailing "/", we need to add one.
-        if(domain.charAt(domain.length())-1 != '/')
+        if(domain.charAt(domain.length()-1) != '/')
             domain+="/";
         this.domain = domain;
         this.length = length;
@@ -108,7 +108,6 @@ public class URLShortner
     }
     
     // getKey: void -> String
-    // Input: A long form URL, that is unknow to the map/db.
     // Output: A random key(String of characters) that will be appended to the 
     //         specified domain to get the short URL.
     // Example: new URLShotner().generateKey(
@@ -144,10 +143,10 @@ public class URLShortner
     // main method to test
     public static void main(String ar[]) throws Exception
     {
-        URLShortner u = new URLShortner();
+        URLShortener u = new URLShortener("asd/", 20);
         String shortURL = u.shortURL("www.google.com/asd");
         System.out.println(shortURL);
-        System.out.println(u.shortURL("www.google.com/dsd"));
+        System.out.println(u.longURL(u.shortURL("www.google.com/dsd")));
         System.out.println(u.shortURL("https://www.google.com/as"));
         String longURL = u.longURL(shortURL);
         System.out.println(longURL);
