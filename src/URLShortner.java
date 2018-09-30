@@ -41,6 +41,9 @@ public class URLShortner
         makeshiftdatabase = new HashMap();
         urlCheck = new HashMap();
         r = new Random();
+        // If the provided domain has no trailing "/", we need to add one.
+        if(domain.charAt(domain.length())-1 != '/')
+            domain+="/";
         this.domain = domain;
         this.length = length;
     }
@@ -143,10 +146,10 @@ public class URLShortner
     public static void main(String ar[]) throws Exception
     {
         URLShortner u = new URLShortner();
-        String shortURL = u.shortURL("www.google.com/");
+        String shortURL = u.shortURL("www.google.com/asd");
         System.out.println(shortURL);
-        System.out.println(u.shortURL("www.google.com/"));
-        System.out.println(u.shortURL("https://www.google.com/"));
+        System.out.println(u.shortURL("www.google.com/dsd"));
+        System.out.println(u.shortURL("https://www.google.com/as"));
         String longURL = u.longURL(shortURL);
         System.out.println(longURL);
     }
