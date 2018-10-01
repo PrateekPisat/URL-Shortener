@@ -36,3 +36,8 @@ I have provided 2 solutions with 2 different approaches:<br>
     - The only change is that instead of using random characters form the character array, I generate a hash using the MD5 algorithm 
           using the given URL as the message digest
           and then use 1..length characters of the hash to get the key.
+
+## Problems:
+The program that I have built suffers from the following problems:
+1. The Solution is not persistent, since all the data regarding the URLs is stored in a Map. If the program crashes at any point of time all the shorter URL generated will be lost and all the shorter URL currently in use will be invalidated. 
+A solution to is problem is using a database a storage solution. This will allow persistent data storage and deal with the problem of data loss on crashes.
