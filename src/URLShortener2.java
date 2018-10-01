@@ -21,8 +21,8 @@ public class URLShortener2
     // Default Constructor. Initializes variable to their default values.
     protected URLShortener2()
     {
-        makeshiftdatabase = new HashMap();
-        urlCheck = new HashMap();
+        makeshiftdatabase = new HashMap<String, String>();
+        urlCheck = new HashMap<String, String>();
         domain = "www.tiny.bit/";
         length = 6;
     }
@@ -30,8 +30,8 @@ public class URLShortener2
     // Paramertized constructor. Initializes variables to the given values.
     protected URLShortener2(String domain, int length)
     {
-        makeshiftdatabase = new HashMap();
-        urlCheck = new HashMap();
+        makeshiftdatabase = new HashMap<String, String>();
+        urlCheck = new HashMap<String, String>();
         this.length = length;
         this.domain = domain;
         // If the provided domain has no trailing "/", we need to add one.
