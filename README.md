@@ -17,7 +17,33 @@ NOTE: The solution that I have provided is best serves as a simulation for the U
         OR<br>
         `java URLShortener2`
 
-## Approachs:
+## Usage:
+- API:
+    - I have provided 2 API methods:
+        1. String shortURL(String longURL):
+            Which returns the shortened URL/ Link
+        2. String longURL(String shortURL):
+            This Returns the long or original URL associated with this shorter version.
+- shortURL:
+    - To get the short-URL, you first need to create an instance of the class URLShortener/URLShortener2.
+    - Then using this instance call shortURL(longURL), passing the long URL as an argument.
+    - Ex.
+            ````
+            URLShortener u = new URLShortener();
+            String short = u.shortURL("www.google.com/asdasd/dasdasd/adsasd");
+            ````
+- longURL:
+    - To get the long-URL, you first need to create an instance of the class URLShortener/URLShortener2.
+    - Then using this instance call longURL(shortURL), passing the short URL as an argument.
+    - Ex.
+            ````
+            URLShortener u = new URLShortener();
+            String short = u.shortURL("www.google.com/asdasd/dasdasd/adsasd");
+            String long = u.longURL(short);
+            ````
+- I have included some test cases in the main method that can also used as examples for further understanding. 
+
+## Approaches:
 I have provided 2 solutions with 2 different approaches:<br>
 - Approach 1: Random Key/String Approach
     - In this approach, the user specifies a domain(for the new URL) and a length(the length of the new key for the new URL). 
