@@ -27,7 +27,7 @@ NOTE: The solution that I have provided is best serves as a simulation for the U
 - shortURL:
     - To get the short-URL, you first need to create an instance of the class URLShortener/URLShortener2.
     - Then using this instance call shortURL(longURL), passing the long URL as an argument.
-    - Ex.
+    - Ex.<br>
             ````
             URLShortener u = new URLShortener();
             String short = u.shortURL("www.google.com/asdasd/dasdasd/adsasd");
@@ -35,11 +35,11 @@ NOTE: The solution that I have provided is best serves as a simulation for the U
 - longURL:
     - To get the long-URL, you first need to create an instance of the class URLShortener/URLShortener2.
     - Then using this instance call longURL(shortURL), passing the short URL as an argument.
-    - Ex.
+    - Ex.<br>
             ````
-            URLShortener u = new URLShortener();
-            String short = u.shortURL("www.google.com/asdasd/dasdasd/adsasd");
-            String long = u.longURL(short);
+            URLShortener u = new URLShortener();<br>
+            String short = u.shortURL("www.google.com/asdasd/dasdasd/adsasd");<br>
+            String long = u.longURL(short);<br>
             ````
 - I have included some test cases in the main method that can also used as examples for further understanding. 
 
