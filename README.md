@@ -37,9 +37,9 @@ NOTE: The solution that I have provided is best serves as a simulation for the U
     - Then using this instance call longURL(shortURL), passing the short URL as an argument.
     - Ex.<br>
       ```java
-      URLShortener u = new URLShortener();<br>
-      String shorter = u.shortURL("www.google.com/asdasd/dasdasd/adsasd");<br>
-      String longer = u.longURL(shorter);<br>
+      URLShortener u = new URLShortener();
+      String shorter = u.shortURL("www.google.com/asdasd/dasdasd/adsasd");
+      String longer = u.longURL(shorter);
       ```
 - I have included some test cases in the main method that can also used as examples for further understanding. 
 
