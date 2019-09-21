@@ -1,10 +1,5 @@
 # URL Shortener
 
-## Problem Statement:
-Write a link shortener, implementing the core functionality yourself. For any given link it should return another that redirects to the original link.
-
-NOTE: The solution that I have provided is best serves as a simulation for the URL shortening process, and does not represent a real-world system.<br>
-
 ## Execution:
 - The program is written using Java.
 - To compile the code:
